@@ -7,7 +7,7 @@ public class Demo {
     public static void main(String[] args) {
 
         ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
+                new ClassPathXmlApplicationContext("applicationContext1.xml");
 
         //CONSTRUCTOR INJECTION
         Coach coach1 = context.getBean("baseball", Coach.class);
