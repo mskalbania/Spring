@@ -7,18 +7,23 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<style>
+    .center {
+        margin-top: 50px;
+        text-align: center;
+    }
+</style>
 <head>
     <title>Main</title>
 </head>
 <body>
-<h2>MENU</h2>
-<h3>
-    1. <a href="${pageContext.request.contextPath}/showForm">Use of jsp forms and @Mapping annotations</a>
-
-
-</h3>
-
-
-
+<div class="center">
+    <h2>MENU</h2>
+    <h3>
+        1. <a href="${pageContext.request.contextPath}/showForm">
+        Use of jsp forms and @Mapping annotations</a><br>
+        2.
+    </h3>
+</div>
 </body>
 </html>
