@@ -21,8 +21,12 @@
     <h2>MENU</h2>
     <h3>
         1. <a href="${pageContext.request.contextPath}/showForm">
-        Use of jsp forms and @Mapping annotations</a><br>
-        2.
+        @Mapping annotations</a><br>
+        2. <a href="${pageContext.request.contextPath}/digit-input">
+        @RequestParam</a><br>
+        3. <a href="${pageContext.request.contextPath}/student/showStudentForm">
+        MVC Spring Tags</a><br>
+    </a>
     </h3>
 </div>
 </body>

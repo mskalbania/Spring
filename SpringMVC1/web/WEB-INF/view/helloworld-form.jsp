@@ -25,12 +25,12 @@
         border: none;
         color: white;
         text-align: center;
+        margin-top: 1px;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        padding: 25px 63px;
+        padding: 25px 55px;
         border-radius: 8px;
-        margin: 4px 2px;
         cursor: pointer;
         transition-duration: 0.2s;
     }
@@ -46,7 +46,7 @@
         text-align: center;
     }
 
-    .button {
+    button[type=submit] {
         background-color: #4CAF50; /* Green */
         border: none;
         color: white;
@@ -60,7 +60,7 @@
         cursor: pointer;
         transition-duration: 0.2s;
     }
-    .button:hover{
+    button[type=submit]:hover{
         background-color: white;
         border: 2px solid #4CAF50;
         color: #4CAF50;
@@ -73,12 +73,13 @@
         <br>
         <input type="text" id="name" name="studentName"
                placeholder="HERE"/>
-        <br><br>
+        <br>
         <input type="submit">
 
     </form>
     <form method="get" action="${pageContext.request.contextPath}/">
-        <button class="button" type="submit">RETURN</button>
+        <br>
+        <button type="submit">RETURN</button>
     </form>
 </div>
 </body>
