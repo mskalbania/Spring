@@ -1,11 +1,9 @@
-package com.mvc;
+package com.spring.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.ServletRequest;
 
 @Controller
 @RequestMapping("/")
@@ -22,8 +20,7 @@ public class HelloWorldController {
     }
 
     @RequestMapping("/processForm")
-    public String processForm(ServletRequest request, Model model) {
-        String name = request.getParameter("studentName");
+    public String processForm(@RequestParam("studentName") String name, Model model) {
 
         model.addAttribute("message", "YO " + name.toUpperCase() + "!!!");
         return "helloworld";

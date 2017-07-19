@@ -1,4 +1,4 @@
-package com.mvc;
+package com.spring.mvc;
 
 public class Student {
 
