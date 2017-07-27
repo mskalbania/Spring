@@ -75,7 +75,6 @@
                placeholder="HERE"/>
         <br>
         <input type="submit">
-
     </form>
     <form method="get" action="${pageContext.request.contextPath}/">
         <br>
