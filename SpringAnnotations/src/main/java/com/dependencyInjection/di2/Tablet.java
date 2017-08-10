@@ -15,7 +15,7 @@ public class Tablet implements MobileDevice {
     }
 
     @Override
-    public void display() {
+    public void displayOperatingSystem() {
         operatingSystem.showDetails();
     }
 }

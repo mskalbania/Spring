@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "com.springAnnotations")
+@ComponentScan(basePackages = "com.dependencyInjection.di2")
 public class MobileConfiguration {
 
 }

@@ -2,7 +2,7 @@ package com.dependencyInjection.di1;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Demo {
+public class Demo1 {
     public static void main(String[] args) {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig2.xml");

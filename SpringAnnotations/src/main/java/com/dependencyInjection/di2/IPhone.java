@@ -15,7 +15,7 @@ public class IPhone extends Phone{
     }
 
     @Override
-    public void display() {
+    public void displayOperatingSystem() {
         operatingSystem.showDetails();
     }
 }
