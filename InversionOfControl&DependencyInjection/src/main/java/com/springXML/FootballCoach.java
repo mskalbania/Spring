@@ -1,9 +1,9 @@
-package com.spring;
+package com.springXML;
 
-public class FootballCoach implements Coach {
+public class FootballCoach implements com.springXML.Coach {
 
     private String teamName;
-    private CoachDependency coachDependency;
+    private com.springXML.CoachDependency coachDependency;
 
     //VALUE INJECTION
     public void setTeamName(String teamName) {
@@ -11,8 +11,8 @@ public class FootballCoach implements Coach {
     }
 
     //OBJECT INJECTION
-    public void setCoachDependency(CoachDependency coachDependency) {
-        System.out.println("Setter invoked by spring");
+    public void setCoachDependency(com.springXML.CoachDependency coachDependency) {
+        System.out.println("Setter invoked by springXML");
         this.coachDependency = coachDependency;
     }
 

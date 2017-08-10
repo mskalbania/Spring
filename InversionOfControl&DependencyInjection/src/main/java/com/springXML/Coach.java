@@ -1,4 +1,4 @@
-package com.spring;
+package com.springXML;
 
 public interface Coach {
 

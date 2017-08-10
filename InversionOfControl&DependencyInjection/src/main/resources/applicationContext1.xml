@@ -7,16 +7,16 @@
     <context:property-placeholder location="classpath:properties.txt"/>
 
 
-    <bean id="baseball" class="com.spring.BaseballCoach">
+    <bean id="baseball" class="com.springXML.BaseballCoach">
         <constructor-arg ref="random_greet"/>
     </bean>
 
-    <bean id="football" class="com.spring.FootballCoach">
+    <bean id="football" class="com.springXML.FootballCoach">
         <property name="coachDependency" ref="greet"/>
         <property name="teamName" value="${teamName}"/>
     </bean>
 
-    <bean id="greet" class="com.spring.GreetingDependency"/>
-    <bean id="random_greet" class="com.spring.RandomDependency"/>
+    <bean id="greet" class="com.springXML.GreetingDependency"/>
+    <bean id="random_greet" class="com.springXML.RandomDependency"/>
 
 </beans>

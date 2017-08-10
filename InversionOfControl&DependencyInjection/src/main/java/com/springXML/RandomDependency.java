@@ -1,4 +1,4 @@
-package com.spring;
+package com.springXML;
 
 public class RandomDependency implements CoachDependency {
 
