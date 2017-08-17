@@ -24,6 +24,13 @@ public class BookService {
         return repository.save(book);
     }
 
+    public boolean delete(long id) {
+        if (repository.exists(id)) {
+            repository.delete(id);
+            return true;
+        } else return false;
+    }
+
     public Book getById(Long id) {
         return repository.findOne(id);
     }
@@ -48,15 +55,12 @@ public class BookService {
         } else return false;
     }
 
-    public boolean delete(long id) {
-        if (repository.exists(id)) {
-            repository.delete(id);
-            return true;
-        } else return false;
-    }
-
     public Iterable<Book> getAll() {
         return repository.findAll();
+    }
+
+    public void deleteAll(){
+        repository.deleteAll();
     }
 
 }

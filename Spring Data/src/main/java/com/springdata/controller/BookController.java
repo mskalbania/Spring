@@ -29,10 +29,15 @@ public class BookController {
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
-    public Book getById(@PathVariable Long id) {
-        return bookService.getById(id);
+    public ResponseEntity<Book> getById(@PathVariable Long id) {
+        Book temp = bookService.getById(id);
+        if (temp != null) {
+            return new ResponseEntity<Book>(bookService.getById(id), HttpStatus.OK);
+        }
+        return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
     }
 
+    //Experimental
     @RequestMapping(value = "/getAllContaining/{s}", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Book>> getByString(@PathVariable String s) {
         Iterable<Book> results = bookService.getAllContainingString(s);
@@ -54,8 +59,8 @@ public class BookController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public Iterable<Book> getAll() {
-        return bookService.getAll();
+    public ResponseEntity<Iterable<Book>> getAll() {
+        return new ResponseEntity<Iterable<Book>>(bookService.getAll(), HttpStatus.OK);
     }
 
 
