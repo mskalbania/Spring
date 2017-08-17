@@ -58,7 +58,7 @@ public class BookIntegrationTest {
 
         final String expected = convertBooksToString(book1, book2, book3);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/getAll")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/getAll")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(content().string(expected));
@@ -69,7 +69,7 @@ public class BookIntegrationTest {
 
         final Book book1 = createDefaultBook(1);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/create")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/create")
                 .content(objectMapper.writeValueAsBytes(book1))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated());
@@ -82,7 +82,7 @@ public class BookIntegrationTest {
 
         final String expected = convertBooksToString(book1);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/getById/" + book1.getId())
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/getById/" + book1.getId())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(content().string(expected));
@@ -94,7 +94,7 @@ public class BookIntegrationTest {
 
         final Book book1 = bookRepository.save(createDefaultBook(1));
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/delete/" + book1.getId())
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/delete/" + book1.getId())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful());
 
@@ -110,7 +110,7 @@ public class BookIntegrationTest {
 
         final String expected = objectMapper.writeValueAsString(book2);
 
-        mockMvc.perform(MockMvcRequestBuilders.put("/update")
+        mockMvc.perform(MockMvcRequestBuilders.put("/api/update")
                 .content(objectMapper.writeValueAsBytes(book2))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())

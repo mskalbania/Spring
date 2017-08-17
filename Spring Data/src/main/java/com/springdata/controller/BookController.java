@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @SuppressWarnings("ALL")
 @RestController
+@RequestMapping("/api")
 public class BookController {
 
     private BookService bookService;
@@ -25,7 +26,7 @@ public class BookController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ResponseEntity<Long> create(@RequestBody Book book) {
-        return new ResponseEntity<>(bookService.create(book).getId(), HttpStatus.CREATED);
+        return new ResponseEntity<>(bookService.create(book), HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)

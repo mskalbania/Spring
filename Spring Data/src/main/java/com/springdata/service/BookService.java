@@ -20,8 +20,8 @@ public class BookService {
         this.repository = repository;
     }
 
-    public Book create(Book book) {
-        return repository.save(book);
+    public long create(Book book) {
+        return repository.save(book).getId();
     }
 
     public boolean delete(long id) {
