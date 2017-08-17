@@ -16,5 +16,6 @@ public class Demo1 {
         ReflectionInjection reflection = context.getBean("reflectionInjection", ReflectionInjection.class);
         reflection.showDependencyName();
 
+        context.close();
     }
 }
