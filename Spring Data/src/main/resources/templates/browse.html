@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/browse-table.css}"/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Book Service</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" th:href="@{/add}">Add</a>
+            <a class="nav-item nav-link" th:href="@{/browse}">Browse</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Category</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${books}">
+                <td><span th:text="${book.title}"></span></td>
+                <td><span th:text="${book.author}"></span></td>
+                <td><span th:text="${book.isbn}"></span></td>
+                <td><span th:text="${book.category}"></span></td>
+                <td><a th:href="@{/update/} + ${book.id}" class="btn btn-sm btn-secondary">Update</a></td>
+                <td><a th:href="@{/delete/} + ${book.id}" class="btn btn-sm btn-dark">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

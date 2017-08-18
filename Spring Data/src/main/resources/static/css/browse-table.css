@@ -1,0 +1,12 @@
+table {
+    margin-top: 10px;
+}
+
+.table thead tr th {
+    border-top: hidden;
+}
+
+.table tbody tr td {
+    font-size: 15px;
+    vertical-align: middle;
+}
