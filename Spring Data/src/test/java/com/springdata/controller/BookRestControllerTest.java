@@ -17,9 +17,9 @@ import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 
-public class BookControllerTest {
+public class BookRestControllerTest {
 
-    private BookController bookController;
+    private BookRestController bookRestController;
 
     @Mock
     private BookService bookService;
@@ -27,7 +27,7 @@ public class BookControllerTest {
     @Before
     public void setUp() {
         initMocks(this);
-        bookController = new BookController(bookService);
+        bookRestController = new BookRestController(bookService);
     }
 
     //TODO ADD MORE TESTS
@@ -38,7 +38,7 @@ public class BookControllerTest {
         final Book book1 = createDefaultBook(1);
         when(bookService.create(any(Book.class))).thenReturn(1L);
 
-        ResponseEntity<Long> response = bookController.create(book1);
+        ResponseEntity<Long> response = bookRestController.create(book1);
 
         verify(bookService, times(1)).create(any(Book.class));
         assertEquals(response.getBody(), new Long(1));
@@ -51,7 +51,7 @@ public class BookControllerTest {
         final long id = 1L;
         when(bookService.delete(id)).thenReturn(true);
 
-        ResponseEntity response = bookController.delete(id);
+        ResponseEntity response = bookRestController.delete(id);
 
         verify(bookService, times(1)).delete(anyLong());
         assertEquals(response.getStatusCode(), HttpStatus.OK);

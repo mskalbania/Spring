@@ -5,21 +5,17 @@ import com.springdata.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
 
 @Controller
-public class ViewController {
+public class BookViewController {
 
     @Autowired
     private BookService bookService;
 
-    //TODO Implement some gui
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String showHome() {
         return "home";
@@ -30,11 +26,11 @@ public class ViewController {
         return "add";
     }
 
-    @RequestMapping(value = "/bookAddSuccess", method = RequestMethod.POST)
+    @RequestMapping(value = "/bookAddInfo", method = RequestMethod.POST)
     public String showBookSuccess(@ModelAttribute Book book, ModelMap modelMap) throws IOException {
         bookService.create(book);
         modelMap.addAttribute("book", book);
-        return "bookAddSuccess";
+        return "bookAddInfo";
     }
 
     @RequestMapping(value = "/update/{id}")

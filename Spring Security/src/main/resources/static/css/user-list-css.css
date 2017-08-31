@@ -1,0 +1,11 @@
+table thead tr th {
+    text-align: center;
+}
+
+table tbody {
+    text-align: center;
+}
+
+table tbody tr td form {
+    display: inline-block;
+}

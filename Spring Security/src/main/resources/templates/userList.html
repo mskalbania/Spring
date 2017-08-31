@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/user-list-css.css}"/>
+    <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:include="navbar :: navbar"></div>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nickname</th>
+            <th>Role</th>
+            <th>Enabled</th>
+            <th>Modify Role</th>
+            <th>Confirm</th>
+            <th>Switch Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.role}"></td>
+            <td th:text="${user.enabled}"></td>
+            <td>
+                <select class="form-control" name="role" th:form="${user.username}">
+                    <option>USER</option>
+                    <option>ADMIN</option>
+                </select>
+            </td>
+            <td id="changeForm">
+                <form method="post" th:action="@{/change}" th:id="${user.username}">
+                    <input type="hidden" name="username" th:value="${user.username}"/>
+                    <div class=" col-lg-1">
+                        <input class="btn btn-primary" type="submit" value="Confirm"/>
+                    </div>
+                </form>
+            </td>
+            <td>
+                <a th:if="${user.enabled}" th:href="@{/disable/} + ${user.username}" class="btn btn-danger btn-sm">DISABLE</a>
+                <a th:if="${not user.enabled}" th:href="@{/enable/} + ${user.username}" class="btn btn-success btn-sm">ENABLE</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

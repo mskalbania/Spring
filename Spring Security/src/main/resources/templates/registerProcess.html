@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+    <div th:if="${response.success}">
+        <h1>User registered successfully!</h1>
+    </div>
+    <div th:if="not ${response.success}">
+        <h1>User registration error!</h1>
+        <h2 th:text="${response.getErrorMessage()}"></h2>
+    </div>
+</body>
+</html>

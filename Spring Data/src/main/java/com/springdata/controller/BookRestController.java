@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @SuppressWarnings("ALL")
 @RestController
 @RequestMapping("/api")
-public class BookController {
+public class BookRestController {
 
     private BookService bookService;
 
     @Autowired
-    public BookController(BookService bookService) {
+    public BookRestController(BookService bookService) {
         this.bookService = bookService;
     }
 
