@@ -15,4 +15,6 @@ public interface UserDao {
     void enable(String username);
 
     void updateRole(User user);
+
+    List<User> getByUsername(String username);
 }

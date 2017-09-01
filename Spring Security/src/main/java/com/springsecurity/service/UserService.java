@@ -43,4 +43,8 @@ public class UserService {
     public void updateRole(User user) {
         userDao.updateRole(user);
     }
+
+    public List<User> getByUsername(String username) {
+        return userDao.getByUsername(username);
+    }
 }

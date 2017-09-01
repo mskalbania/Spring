@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@SuppressWarnings("Duplicates")
 @Repository
 public class JdbcUserDao implements UserDao {
 
@@ -54,6 +55,21 @@ public class JdbcUserDao implements UserDao {
                 return user;
             }
         });
+    }
+
+    @Override
+    public List<User> getByUsername(String username) {
+        return jdbcTemplate.query(GET_USERS_QUERY + " AND users.username LIKE ?",
+                new RowMapper<User>() {
+                    @Override
+                    public User mapRow(ResultSet resultSet, int i) throws SQLException {
+                        User user = new User();
+                        user.setUsername(resultSet.getString("username"));
+                        user.setRole(parseRole(resultSet.getString("role")));
+                        user.setEnabled(resultSet.getBoolean("enabled"));
+                        return user;
+                    }
+                }, "%" + username + "%");
     }
 
     @Override

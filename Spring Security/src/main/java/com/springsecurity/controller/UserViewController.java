@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-public class UserController {
+public class UserViewController {
 
     private UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserViewController(UserService userService) {
         this.userService = userService;
     }
 

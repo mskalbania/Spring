@@ -2,15 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/user-list-css.css}"/>
     <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
     <script th:src="@{/js/popper.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/dynamic.js}"></script>
 </head>
 <body>
 <div th:include="navbar :: navbar"></div>
 <div class="container">
-    <table class="table">
+    <form>
+        <label for="usernameField">Search: </label>
+        <input id="usernameField"/>
+    </form>
+    <table id="userList" class="table">
         <thead>
         <tr>
             <th>Nickname</th>

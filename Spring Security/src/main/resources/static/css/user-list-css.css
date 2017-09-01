@@ -9,3 +9,7 @@ table tbody {
 table tbody tr td form {
     display: inline-block;
 }
+
+body{
+    padding-top: 70px;
+}
